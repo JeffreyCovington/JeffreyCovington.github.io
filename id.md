@@ -11,7 +11,8 @@
 ![The DAG for this setup.](/dag.png)
 
 The set $X_A = \\{\mathrm{Rating}_W, \mathrm{Rating}_B, \mathrm{Streak}_W, \mathrm{Streak}_B, \mathrm{TC}\\}$ $d$-separates $\mathrm{Berkserk}_W$ and $\mathrm{Berkserk}_B$ from $\mathrm{Outcome}$. Further, because $\mathrm{Outcome}$ is a collider $X_A$ is $d$-deparated from $b_W$ and $b_B$. Therefore, using backdoor adjustment $\mathrm{Outcome}(b_W, b_B)$ is identified by
-\[E[\mathrm{Outcome}(b_W, b_B)] = E[E[\mathrm{Outcome} \mid \mathrm{Berserk}_W = b_W, \mathrm{Berserk}_B = b_B, \mathrm{Rating}, \mathrm{Streak}, \mathrm{TC}]]\]
+
+$E[\mathrm{Outcome}(b_W, b_B)] = E[E[\mathrm{Outcome} \mid \mathrm{Berserk}_W = b_W, \mathrm{Berserk}_B = b_B, \mathrm{Rating}, \mathrm{Streak}, \mathrm{TC}]]$
 
 ## Discussion of Assumptions
 
