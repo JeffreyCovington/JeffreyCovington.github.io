@@ -65,6 +65,7 @@ Overall, outside of this analysis, White tends to scores 52% at this time contro
 In the context of this analysis, White scores higher at 54% without berserking, which may be attributable to games in which White does not berserk and Berserks.
 
 In the case where Black chooses to berserk, the results are as follows. Note that the score and rating are given from White's perspective.
+
 | Estimand | Score | Equivalent Rating |
 | --- | --- | --- |
 | E[\mathrm{Outcome}(b_B = 0)] | 50.99% | +6.9 |
