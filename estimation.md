@@ -18,6 +18,34 @@ Glicko is an Elo-based rating system where player's ratings are based on the log
 ${\mathrm{Streak}}$ encodes whether White (W) and Black (B) are on a streak, affecting the relative value of a win in the tournament standings. After winning two games in a row, a player earns double points for a win. A streak is broken after a draw or loss. This is encoded as 0, 1, 2 for no streak, 1 win streak, and 2+ win streak respectively.
 $\mathrm{Berserk}$ represents whether White (W) and Black (B) choose to berserk, i.e. cut their starting time in half for the opportunity of scoring an extra point.
 
+## Estimation
+
+Logistic outcome regression is used to estimate each of $E[\mathrm{Outcome}(b_W)]$ and $E[\mathrm{Outcome}(b_B)]$ for each case of $b_W = 0, 1$ and $b_B = 0, 1$. Without loss of generality we detail the algorithm for
+
+$E[\mathrm{Outcome}(b_W)] = E[E[\mathrm{Outcome} \mid X, \mathrm{Berserk}_W = b_W]]$
+
+where
+
+$X = (1, \mathrm{Berserk}_B, \mathrm{Rating}, \mathrm{Streak})$
+
+To enforce that the expected outcome lies in $[0, 1]$, we use logistic regression where we model
+
+$E[E[\mathrm{Outcome} \mid X, \mathrm{B}_W] = \operatorname{logit}(\mu(X, \mathrm{B}_W; \theta)) := \eta(X, \mathrm{B}_W; \theta)$
+
+where $\theta$ is a set of parameters to be fit.
+Using $\eta := \theta^T (X, \mathrm{B}_W)^{T}$ subject to the constraint that $E_N[(\mathrm{Outcome} - \mu(X, \mathrm{B}_W; \theta) (X, \mathrm{B}_W)^{T}] = 0$ which can be solved using Newton's method.
+Finally taking the expectation of the model gives the desired causal estimand.
+
+Chess players often interpret expected scores in terms of an equivalent rating difference. For a given rating difference $R$, the expected score, $E$, is given by
+
+$E = \frac{1}{1 + 10^{-R/400}}$
+
+Then for an expected score $E$, the equivalent rating difference is given by
+
+$R = 400 \log_{10}\left(\frac{E}{1-E}\right)$
+
+Then for this analysis the results will also be reported as the equivalent difference in rating between choosing to berserk and not.
+
 ## Results
 
 Data was collected from the [January 2022 lichess titled arena](https://lichess.org/tournament/jan22lta), a tournament with cash prizes that was only open to professional players.
