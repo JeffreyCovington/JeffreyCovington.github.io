@@ -1,4 +1,5 @@
 theme: jekyll-theme-minimal
 title: Jeff's homepage
 layout: default
-mathjax: true
+plugins:
+  - jekyll-default-layout
