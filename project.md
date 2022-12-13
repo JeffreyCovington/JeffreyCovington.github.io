@@ -166,3 +166,12 @@ These modelling assumptions are based on the logistic assumptions of the Elo rat
 Because Elo ratings are a logit model, there is an implicit transitivity assumption, e.g. that if player A's expected odds against player B are 10:1 (a 400 point rating difference), and player B's expected odds against player C is 10:1, then A's epected odds against player C are 100:1 (an 800 point rating difference.) This transitivity assumption has been called into question for large differences in rating. In this case higher order terms could be added to the logistic model to compensate.
 
 Another assumption is that the outcome only depends on the relative skill of the players and not the absolute skill, i.e. the model works the same for games between beginners and games between grandmasters. If this assumption is violated, separate terms for each player's ratings may be added to the regression.
+
+## Conclusion
+
+In this project we estimated the negative effect of berserking on a players expected score in a game while controlling for confounding variables.
+We found a roughly 150 decrease in performance when a player chooses to berserk.
+Future work can consider a larger variety of time controls as well as including a wider range of ratings.
+Chess players can immediately put this information into practice when playing in arena tournaments, taking into account the decrease in performance from berserking more precisely when weighing it against the potential gains.
+More generally, this gives insights into the nature of time trouble in chess.
+Future work may also consider the effects of reduced time at many points in the game rather than just the beginning.
