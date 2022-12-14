@@ -46,8 +46,6 @@ The set $X_A = \\{\mathrm{Rating}_W, \mathrm{Rating}_B, \mathrm{Streak}_W, \math
 
 $E[\mathrm{Outcome}(b_W, b_B)] = E[E[\mathrm{Outcome} \mid \mathrm{Berserk}_W = b_W, \mathrm{Berserk}_B = b_B, \mathrm{Rating}, \mathrm{Streak}, \mathrm{TC}]]$
 
-## Discussion of Assumptions
-
 A major assumption that is made is that each player's decision to berserk is idependent from eachother. This may not be the case, as players have the opportunity to berkserk after seeing their opponents decision. This could be modeled by a sequential decision making process, but this adds a huge amount of complexity, so this simplifying assumption is made.
 
 ## Identification
@@ -127,14 +125,14 @@ By choosing to berserk, the results suggest that Black goes from scoring around 
 This is roughly in line with the results for White. In this analysis, by choosing not to berserk, Black scores slightly better (49%) compared to Black's usual expected score of 48%.
 As with the analysis for White, this may be attributable to playing opponents who chose to berserk.
 
-## Discussion
+## Interpretation of Results
 
 Chess players have a lot of experience interpreting differencing in chess ratings.
 This analysis suggests that choosing to berserk reduces one's performance by approximately 150 rating points, which should be taken into account when making this choice.
 The ultimate goal of this analysis is not just to estimate the effect of berserking, but to estimate the effect of time trouble in general.
 It should be noted that these results differ from estimates given by Kenneth Regan, who suggests that reducing one's time by half at this time control results in approximately a 267 point drop in performance.
 
-# Discussion of Assumptions and Sensitivity Analysis
+## Discussion of Assumptions and Sensitivity Analysis
 
 It is well known that time trouble has a significant effect on the outcome of a chess game. Having less time to make decisions leads to poor decision making. This is backed up by the collective experience of the chess community. Then the question needed to answer is what the magnitude of the effect is.
 
@@ -142,7 +140,7 @@ To investigate this we can look at data from lichess.org, namely the results of 
 
 However, the decision to berserk or not comes down to the individual psychology of the players, which is rife with potential unmeasured confounding factors. In this section we will examine the psychological and modelling assumptions used in this study.
 
-## Player Psychology and Unmeasured Confounding
+### Player Psychology and Unmeasured Confounding
 
 Our data only included tournaments from the lichess.org Titled Arenas: tournaments with substantial cash prizes that are only open to professional players. Because of this we made the assumption that players are acting in their own self interest when making the decision to berserk or not based on their experience and the information available to them.
 
@@ -155,7 +153,7 @@ Some additional variables that could be controlled for are:
 - Whether a player is playing using an anonymous account.
 - The results of previous games between two players.
 
-## Logistic Modelling Assumptions
+### Logistic Modelling Assumptions
 
 In this study we used logistic outcome regression to model the effect of berserking on the expected outcome of a chess game. We argued that the players' Elo ratings were the most important factor for both the decision to berserk and the outcome of the game. The Elo system itself is a logit model of player skill, predicting the expected outcome of the game based on the difference in the player's ratings. Because of this, two modelling assumptions were made when Elo ratings were incorporated into the logistic regression:
 - The outcome depends only linearly on the players' ratings.
@@ -167,7 +165,7 @@ Because Elo ratings are a logit model, there is an implicit transitivity assumpt
 
 Another assumption is that the outcome only depends on the relative skill of the players and not the absolute skill, i.e. the model works the same for games between beginners and games between grandmasters. If this assumption is violated, separate terms for each player's ratings may be added to the regression.
 
-## Conclusion
+## Conclusions
 
 In this project we estimated the negative effect of berserking on a players expected score in a game while controlling for confounding variables.
 We found a roughly 150 decrease in performance when a player chooses to berserk.
